@@ -1,6 +1,6 @@
 'use strict';
 
-let voteCount = 3;
+let voteCount = 25;
 const state = {
   allProductsArray: [],
 };
