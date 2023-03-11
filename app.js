@@ -1,6 +1,6 @@
 'use strict';
 
-let voteCount = 25;
+let voteCount = 3;
 const state = {
   allProductsArray: [],
 };
@@ -15,9 +15,6 @@ let resultsList = document.getElementById('results-list');
 
 //>>> constructors
 
-// utilizing default value for file extensions
-// if nothing is passed in it will default to this value
-// if a value is passed in it will utilize that
 function Product(name, fileExtension = 'jpg'){
   this.name = name;
   this.views = 0;
@@ -49,7 +46,7 @@ let wineglass = new Product('wine-glass');
 
 console.log(state.allProductsArray);
 
-// >>> helper functions - randomly generate and index and render function - target the attribute of that img element to add path
+// >>> helper functions
 
 
 function getRandomIndex(){
@@ -61,9 +58,11 @@ function renderImgs(){
   let indexOne = getRandomIndex();
   let indexTwo = getRandomIndex();
   let indexThree = getRandomIndex();
-  while(indexOne === indexTwo){
+  while(indexOne === indexTwo || indexOne === indexThree || indexTwo === indexThree){
     indexTwo = getRandomIndex();
+    indexThree = getRandomIndex();
   }
+
   imgOne.src = state.allProductsArray[indexOne].photo;
   imgOne.alt = state.allProductsArray[indexOne].name;
   state.allProductsArray[indexOne].views++;
@@ -82,27 +81,26 @@ function renderImgs(){
 //>>> event handlers
 function handleClick(event){
   voteCount--;
-  // pulling info from alt attribute on our target allows us to compare duck names
   let imgClicked = event.target.alt;
   for(let i  = 0; i < state.allProductsArray.length; i++){
     if(imgClicked === state.allProductsArray[i].name){
       state.allProductsArray[i].votes++;
-      console.log(imgClicked, state.allProductsArray[i].votes++);
+      console.log(imgClicked, state.allProductsArray[i].votes);
     }
   }
-  // ensures images will regenerate on click
   renderImgs();
-  // stop votes
   if(voteCount === 0){
-    imgContainer.removeEventListener('click', handleClick);
+    // imgContainer.removeEventListener('click', handleClick);
+    imgOne.removeEventListener('click', handleClick);
+    imgTwo.removeEventListener('click', handleClick);
+    imgThree.removeEventListener('click', handleClick);
   }
   console.log(voteCount);
 }
 function handleShowResults(){
-  //display results in a list; only work if vote count is 0
   if(voteCount === 0){
     for(let i = 0; i < state.allProductsArray.length; i++){
-      let liElement = document.createElement('li');
+      let liElem = document.createElement('li');
       liElem.textContent = `${state.allProductsArray[i].name} was shown ${state.allProductsArray[i].views} and had ${state.allProductsArray[i].votes} votes`;
       resultsList.append(liElem);
     }
@@ -110,7 +108,11 @@ function handleShowResults(){
 }
 //>>>listeners
 
-imgContainer.addEventListener('click', handleClick);
+document.getElementById("img-one").addEventListener('click', handleClick);
+document.getElementById("img-two").addEventListener('click', handleClick);
+document.getElementById("img-three").addEventListener('click', handleClick);
+
+// imgContainer.addEventListener('click', handleClick);
 resultsButton.addEventListener('click', handleShowResults);
 //>>> function invocations
 
