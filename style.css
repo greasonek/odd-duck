@@ -37,8 +37,8 @@ h1 {
 }
 
 #products {
-  grid-column: 3/8;
-  /* grid-row: 2/4; */
+  grid-column: 4/8;
+  grid-row: 2/4;
   background-color: lightcyan;
   border: 3px solid darkcyan;
   border-radius: 5px;
@@ -59,9 +59,8 @@ h1 {
 }
 
 .results {
-  grid-area: sidebar;
-  /* grid-column: 2/8;
-  grid-row: 4/5; */
+  grid-column: 2/4;
+  grid-row: 2/6;
   background-color: lightcyan;
   border: 5px solid darkcyan;
   border-radius: 3px;
@@ -94,4 +93,13 @@ li{
   padding:5px;
   background-size: 20xpx;
   list-style-type:disc;
+}
+
+.chart-container {
+  grid-column: 4/8;
+  grid-row: 4/6;
+  background-color: lightcyan;
+  border: 3px solid darkcyan;
+  border-radius: 5px;
+  height:400px;
 }
