@@ -4,3 +4,4 @@
 [Lab12-Lighthouse-Screenshot](./img.Lab12-Lighthouse-Screenshot.jpg)
 
 test to get GitHub to work 
+
