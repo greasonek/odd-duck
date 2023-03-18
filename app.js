@@ -162,9 +162,11 @@ function handleClick(event){
     let stringifiedProducts = JSON.stringify(state.allProductsArray);
     console.log(stringifiedProducts);
 
-    localStorage.setItem('products'. stringifiedProducts);
+    localStorage.setItem('products', stringifiedProducts);
+
   }
   console.log(voteCount);
+
 }
 
 function handleShowResults(){
