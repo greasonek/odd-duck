@@ -97,9 +97,18 @@ li{
 
 .chart-container {
   grid-column: 4/8;
-  grid-row: 4/6;
+  grid-row: 4/8;
   background-color: lightcyan;
   border: 3px solid darkcyan;
   border-radius: 5px;
   height:400px;
+}
+
+.radar-container {
+  grid-column: 4/8;
+  grid-row: 6/8;
+  background-color: lightcyan;
+  border: 3px solid darkcyan;
+  border-radius: 5px;
+  height: 400px;
 }
