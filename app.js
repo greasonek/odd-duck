@@ -55,8 +55,6 @@ if(retrievedProducts){
 }
 
 
-
-
 console.log(state.allProductsArray);
 
 // >>> helper functions
@@ -165,6 +163,7 @@ function handleClick(event){
     console.log(stringifiedProducts);
 
     localStorage.setItem('products', stringifiedProducts);
+
   }
   console.log(voteCount);
 
